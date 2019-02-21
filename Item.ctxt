@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Item
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Item\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ Item()
+comment10.params=id
+comment10.target=int\ setPrice(int)
+comment11.params=id
+comment11.target=java.lang.String\ setCategory(java.lang.String)
+comment2.params=
+comment2.target=int\ getId()
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=
+comment4.target=int\ getStock()
+comment5.params=
+comment5.target=int\ getPrice()
+comment6.params=
+comment6.target=java.lang.String\ getCategory()
+comment7.params=id
+comment7.target=int\ setId(int)
+comment8.params=id
+comment8.target=java.lang.String\ setName(java.lang.String)
+comment9.params=id
+comment9.target=int\ setStock(int)
+numComments=12
