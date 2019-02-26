@@ -1,33 +1,80 @@
 
 /**
- * Write a description of class Supplier here.
+ * Class Item
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Hasnan Fiqih
+ * @version 28/2/2019
  */
+
 public class Supplier
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Supplier
-     */
-    public Supplier()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    private int id;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private Location location;
+    
+    
+ public Supplier(int id, String name, String email, String phoneNumber, Location location)
+ {
+    this.id = id;
+    this.name = name;
+    this.phoneNumber = phoneNumber;
+    this.location = location;
+ }
+ 
+ public int getId()
+ {
+    return id;
+ }
+ 
+ public String getName()
+ {
+    return name;
+ }
+ 
+ public String getEmail()
+ {
+    return email;
+ }
+ 
+ public String getPhoneNumber()
+ {
+    return phoneNumber;
+ }
+ 
+ public Location getLocation()
+ {
+    return location;
+ }
+ 
+ public void setId(int id)
+ {
+    this.id = id;
+ }
+ 
+ public void setName(String name)
+ {
+    this.name = name;
+ }
+ 
+ public void setEmail(String email)
+ {
+    this.email = email;
+ }
+ 
+ public void setPhoneNumber(String phoneNumber)
+ {
+    this.phoneNumber = phoneNumber;
+ }
+ 
+ public void setLocation(Location location)
+ {
+    this.location = location;
+ }
+ 
+ public void printData()
+ {
+     System.out.println(name);
+ }
 }

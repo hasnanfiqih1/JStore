@@ -1,33 +1,33 @@
 
 /**
- * Write a description of class DatabaseItem here.
+ * Class Item
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Hasnan Fiqih
+ * @version 28/2/2019
  */
+
 public class DatabaseItem
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class DatabaseItem
-     */
-    public DatabaseItem()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+   private String[] listItem;
+   private Item item;
+   
+   public boolean addItem(Item item)
+   {
+       return true;
+   }
+   
+   public boolean removeItem(Item item)
+   {
+       return true;
+   }
+   
+   public Item getItem()
+   {
+       return item;
+   }
+   
+   public String[] getItemDatabase()
+   {
+       return listItem;
+   }
 }
