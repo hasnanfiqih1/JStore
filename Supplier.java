@@ -18,6 +18,7 @@ public class Supplier
  public Supplier(int id, String name, String email, String phoneNumber, Location location)
  {
     this.id = id;
+    this.email = email;
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.location = location;
@@ -75,6 +76,12 @@ public class Supplier
  
  public void printData()
  {
-     System.out.println(name);
+     System.out.println("==========SUPPLIER==========");
+     System.out.println("ID: "+id);
+     System.out.println("Nama: "+name);
+     System.out.println("Email: "+email);
+     System.out.println("Nomor Telfon: "+phoneNumber);
+     System.out.println("Lokasi: "+location.getCity());
+     System.out.println("============================");
  }
 }

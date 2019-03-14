@@ -9,21 +9,22 @@
 public class DatabaseItem
 {
    private String[] listItem;
-   private Item item;
+   public static Item itemDB;
    
-   public boolean addItem(Item item)
+   public static boolean addItem(Item item)
+   {
+       itemDB = item;
+       return true;
+   }
+   
+   public static boolean removeItem(Item item)
    {
        return true;
    }
    
-   public boolean removeItem(Item item)
+   public static Item getItem()
    {
-       return true;
-   }
-   
-   public Item getItem()
-   {
-       return item;
+       return itemDB;
    }
    
    public String[] getItemDatabase()

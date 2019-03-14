@@ -51,6 +51,10 @@ public class Location
     
     public void printData()
     {
-        System.out.println(province);
+     System.out.println("==========LOCATION==========");
+     System.out.println("Provinsi: "+province);
+     System.out.println("Kota: "+city);
+     System.out.println("Deskripsi: "+description);
+     System.out.println("============================");
     }
 }
