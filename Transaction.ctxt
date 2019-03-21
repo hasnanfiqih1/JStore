@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Transaction
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Transaction\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=supplier
-comment1.target=void\ orderNewItem(Supplier)
-comment2.params=supplier
-comment2.target=void\ orderSecondItem(Supplier)
-comment3.params=supplier
-comment3.target=void\ orderRefurbishedItem(Supplier)
+comment1.params=item
+comment1.target=void\ orderNewItem(Item)
+comment2.params=item
+comment2.target=void\ orderSecondItem(Item)
+comment3.params=item
+comment3.target=void\ orderRefurbishedItem(Item)
 comment4.params=item
 comment4.target=void\ sellItemPaid(Item)
 comment5.params=item

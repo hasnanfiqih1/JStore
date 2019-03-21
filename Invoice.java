@@ -6,20 +6,22 @@
  * @version 28/2/2019
  */
 
-public class Invoice
+public abstract class Invoice
 {
    private int id;
    private Item item;
    private String date;
-   private int totalPrice;
+   protected int totalPrice;
    private int totalItem;
    private InvoiceStatus status;
+   private InvoiceType type;
    
-   public Invoice(int id, Item item, String date, int totalPrice)
+   public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
    {
        this.id = id;
        this.item = item;
        this.date = date;
+       this.totalItem = totalItem;
        this.totalPrice = totalPrice;
    }
    
@@ -53,6 +55,11 @@ public class Invoice
         return status;
     }
     
+    public InvoiceType getInvoiceType()
+    {
+        return type;
+    }
+    
    public void setId(int id)
    {
        this.id = id;
@@ -83,14 +90,5 @@ public class Invoice
         this.status = status;
     }
    
-   public void printData()
-   {
-     System.out.println("==========INVOICE==========");
-     System.out.println("ID: "+id);
-     System.out.println("Tanggal: "+date);
-     System.out.println("Item: "+item.getName());
-     System.out.println("Total Harga: "+totalPrice);
-     System.out.println("Status: "+status);
-     System.out.println("===========================");
-   }
+   public abstract void printData();
 }

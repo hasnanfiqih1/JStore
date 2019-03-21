@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Buy_Paid
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Buy_Paid\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=id\ item\ date\ totalItem\ totalPrice
+comment1.target=Buy_Paid(int,\ Item,\ java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=InvoiceStatus\ getInvoiceStatus()
+comment3.params=
+comment3.target=InvoiceType\ getInvoiceType()
+comment4.params=
+comment4.target=void\ printData()
+numComments=5

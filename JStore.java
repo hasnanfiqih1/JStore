@@ -14,13 +14,11 @@ public class JStore
        location1.printData();
        supplier1.printData();
        
-       
-       Transaction.orderNewItem(supplier1);
-       Transaction.orderSecondItem(supplier1);
-       Transaction.orderRefurbishedItem(supplier1);
-       Transaction.sellItemPaid(DatabaseItem.getItem());
-       Transaction.sellItemUnpaid(DatabaseItem.getItem());
-       Transaction.sellItemInstallment(DatabaseItem.getItem());
+       Item item1 = new Item (99, "Laptop", 9, ItemStatus.New, 12000000, supplier1, ItemCategory.Electronics);
+       Transaction.orderNewItem(item1);
+       Transaction.sellItemPaid(item1);
+       Transaction.sellItemUnpaid(item1);
+       Transaction.sellItemInstallment(item1);
    } 
    
    public JStore()
