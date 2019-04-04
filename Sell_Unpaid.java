@@ -1,4 +1,4 @@
-
+import java.util.Calendar;
 /**
  * Write a description of class Buy_Paid here.
  *
@@ -9,12 +9,13 @@ public class Sell_Unpaid extends Invoice
 {
     private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
-    private String dueDate;
+    private Calendar dueDate = Calendar.getInstance();
+    private Customer customer;
     
-    public Sell_Unpaid (int id, Item item, String date, int totalItem, int totalPrice, String dueDate)
+    public Sell_Unpaid (int id, Item item, int totalItem, Customer customer)
     {
-    super(id, item, date, totalItem, totalPrice);
-    this.dueDate = dueDate;
+    super(id, item, totalItem);
+    this.customer = customer;
     }
     
     public InvoiceStatus getInvoiceStatus()
@@ -27,20 +28,28 @@ public class Sell_Unpaid extends Invoice
         return INVOICE_TYPE;
     }
     
-    public String getDueDate()
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    
+    public Calendar getDueDate()
     {
         return dueDate;
     }
     
-    public void printData()
+    public void setCustomer(Customer customer)
     {
-        System.out.println("==========INVOICE==========");
-        System.out.println("ID: "+getId());
-        System.out.println("Tanggal: "+getDate());
-        System.out.println("Item: "+getItem().getName());
-        System.out.println("Total Harga: "+totalPrice);
-        System.out.println("Status: "+getInvoiceStatus());
-        System.out.println("Due Date: "+getDueDate());
-        System.out.println("===========================");
+        this.customer = customer;
+    }
+    
+    public void setDueDate(Calendar dueDate)
+    {
+        this.dueDate = dueDate;
+    }
+    
+    public String toString()
+    {
+        return INVOICE_TYPE+""+INVOICE_STATUS+dueDate+customer;
     }
 }

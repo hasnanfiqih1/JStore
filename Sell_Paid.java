@@ -9,10 +9,17 @@ public class Sell_Paid extends Invoice
 {
     private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+    private Customer customer;
     
-    public Sell_Paid (int id, Item item, String date, int totalItem, int totalPrice)
+    public Sell_Paid (int id, Item item, int totalItem, Customer customer)
     {
-    super(id, item, date, totalItem, totalPrice);
+    super(id, item, totalItem);
+    this.customer = customer;
+    }
+    
+    public Customer getCustomer()
+    {
+        return customer;
     }
     
     public InvoiceStatus getInvoiceStatus()
@@ -25,14 +32,13 @@ public class Sell_Paid extends Invoice
         return INVOICE_TYPE;
     }
     
-    public void printData()
+    public void setCustomer(Customer customer)
     {
-        System.out.println("==========INVOICE==========");
-        System.out.println("ID: "+getId());
-        System.out.println("Tanggal: "+getDate());
-        System.out.println("Item: "+getItem().getName());
-        System.out.println("Total Harga: "+totalPrice);
-        System.out.println("Status: "+getInvoiceStatus());
-        System.out.println("===========================");
+        this.customer = customer;
+    }
+    
+    public String toString()
+    {
+        return INVOICE_TYPE+""+INVOICE_STATUS+customer;
     }
 }

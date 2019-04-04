@@ -1,6 +1,7 @@
-
+import java.util.*;
 /**
- * Class Item
+
+  * Class Item
  *
  * @author Hasnan Fiqih
  * @version 28/2/2019
@@ -10,19 +11,19 @@ public abstract class Invoice
 {
    private int id;
    private Item item;
-   private String date;
-   protected int totalPrice;
+   private Calendar date = Calendar.getInstance();
+   private int totalPrice;
    private int totalItem;
    private InvoiceStatus status;
    private InvoiceType type;
    
-   public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
+   
+   public Invoice(int id, Item item, int totalItem)
    {
        this.id = id;
        this.item = item;
-       this.date = date;
        this.totalItem = totalItem;
-       this.totalPrice = totalPrice;
+       setTotalPrice(); 
    }
    
    public int getId()
@@ -35,7 +36,7 @@ public abstract class Invoice
     return item;
    }
     
-   public String getDate()
+   public Calendar getDate()
    {
     return date;
    }
@@ -70,14 +71,14 @@ public abstract class Invoice
        this.item = item;
    }
     
-   public void setDate(String date)
+   public void setDate(Calendar date)
    {
        this.date = date;
    }
     
-   public void setTotalPrice(int totalPrice)
+   public void setTotalPrice()
    {
-       this.totalPrice = totalPrice;
+       totalPrice = item.getPrice()*totalItem;
    }
     
    public void setTotalItem(int totalItem)
@@ -90,5 +91,10 @@ public abstract class Invoice
         this.status = status;
     }
    
-   public abstract void printData();
+   //public abstract void printData();
+   
+   public String toString()
+   {
+       return id +""+ item+date+totalPrice+totalItem+status+type;
+    }
 }

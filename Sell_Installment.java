@@ -11,11 +11,13 @@ public class Sell_Installment extends Invoice
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
+    private Customer customer;
     
-    public Sell_Installment (int id, Item item, String date, int totalItem, int totalPrice, int installmentPeriod)
+    public Sell_Installment (int id, Item item, int totalItem, int installmentPeriod, Customer customer)
     {
-    super(id, item, date, totalItem, totalPrice);
+    super(id, item, totalItem);
     this.installmentPeriod = installmentPeriod;
+    this.customer = customer;
     }
     
     public int getInstallmentPeriod()
@@ -26,6 +28,11 @@ public class Sell_Installment extends Invoice
     public int getInstallmentPrice()
     {
         return installmentPrice;
+    }
+    
+    public Customer getCustomer()
+    {
+        return customer;
     }
     
     public InvoiceStatus getInvoiceStatus()
@@ -40,23 +47,21 @@ public class Sell_Installment extends Invoice
     
     public void setInstallmentPrice()
     {
-        installmentPrice = totalPrice / installmentPeriod * 102 / 100;
+        installmentPrice = getTotalPrice() / installmentPeriod * 102 / 100;
     }
     
     public void setTotalPrice()
     {
-        totalPrice = installmentPrice * installmentPeriod;
+        setTotalPrice();
     }
     
-    public void printData()
+    public void setCustomer()
     {
-        System.out.println("==========INVOICE==========");
-        System.out.println("ID: "+getId());
-        System.out.println("Tanggal: "+getDate());
-        System.out.println("Item: "+getItem().getName());
-        System.out.println("Total Harga: "+totalPrice);
-        System.out.println("Status: "+getInvoiceStatus());
-        System.out.println("Installment Price: "+getInstallmentPrice());
-        System.out.println("===========================");
+        this.customer = customer;
+    }
+    
+    public String toString()
+    {
+        return INVOICE_TYPE+""+INVOICE_STATUS+installmentPeriod+installmentPrice+customer;
     }
 }
