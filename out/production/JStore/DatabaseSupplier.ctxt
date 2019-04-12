@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DatabaseSupplier
+comment0.text=\r\n\ <h1>Item.java</h1>\r\n\ <p>\r\n\ Class\ ini\ berisi\ Database\ Supplier\ dari\ JStore\ Application\r\n\ Class\ ini\ representasi\ dari\ sebuah\ Database\ Supplier\ yang\ terdapat\ pada\ JStore\ Application\r\n\ </p>\r\n\ \r\n\r\n\ @author\ (Afdal\ Ridho\ Arman)\r\n\ @version\ (1.0)\r\n\ @since\ (2019/03/04)\r\n
+comment1.params=
+comment1.target=DatabaseSupplier()
+comment1.text=\r\n\ Method\ DatabaseSupplier\ merupakan\ Constructor\ dari\ Class\ DatabaseSupplier\r\n\ Method\ ini\ bisa\ berisi\ nilai\ default\ dari\ variabel\ Class\ DatabaseSupplier\r\n
+comment2.params=supplier
+comment2.target=boolean\ addSupplier(Supplier)
+comment2.text=\r\n\ Method\ ini\ merupakan\ method\ yang\ menambahkan\ supplier\ baru\ kedalam\ DataseSupplier\r\n\ @param\ supplier\ Supplier\ yang\ ingin\ dimasukan\ ke\ Database\r\n\ @return\ nilai\ boolean\ apakah\ berhasil\ atau\ tidak\ pada\ saat\ memasukan\ supplier\r\n
+comment3.params=supplier
+comment3.target=void\ removeSupplier(Supplier)
+comment3.text=\r\n\ Method\ ini\ merupakan\ method\ yang\ menghapus\ Supplier\ dari\ Database\r\n\ @param\ supplier\ Supplier\ yang\ ingin\ dihapus\ dari\ database\r\n\ @return\ nilai\ boolean\ apakah\ berhasil\ atau\ tidak\ pada\ saat\ menghapus\ supplier\r\n
+comment4.params=
+comment4.target=Supplier\ getSupplier()
+comment4.text=\r\n\ Accessor\ Method\ untuk\ mengambil\ Supplier\ dari\ object\ DatabaseSupplier\r\n\ @return\ Supplier\ dari\ object\ DatabaseSupplier\r\n
+comment5.params=
+comment5.target=java.lang.String[]\ getListSupplier()
+comment5.text=\r\n\ Accessor\ Method\ untuk\ mengambil\ List\ Array\ Supplier\ dari\ object\ DatabaseSupplier\r\n\ @return\ List\ Array\ Supplier\ dari\ object\ DatabaseSupplier\r\n
+numComments=6

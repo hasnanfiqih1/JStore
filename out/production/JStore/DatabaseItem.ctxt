@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DatabaseItem
+comment0.text=\r\n\ <h1>Item.java</h1>\r\n\ <p>\r\n\ Class\ ini\ merupakan\ bagian\ Database\ Item\ dari\ JStore\ Application\r\n\ Class\ ini\ representasi\ dari\ sebuah\ Database\ Item\ yang\ terdapat\ pada\ JStore\ Application\r\n\ </p>\r\n\r\n\ @author\ (Afdal\ Ridho\ Arman)\r\n\ @version\ (1.0)\r\n\ @since\ (2019/03/04)\r\n
+comment1.params=
+comment1.target=DatabaseItem()
+comment1.text=\r\n\ Method\ DatabaseItem\ merupakan\ Constructor\ dari\ DatabaseItem\ Class\r\n\ Method\ ini\ dapat\ berisi\ nilai\ default\ dari\ variabel\ dalam\ DatabaseItem\ Class\r\n
+comment2.params=item
+comment2.target=boolean\ addItem(Item)
+comment2.text=\r\n\ Method\ ini\ merupakan\ method\ untuk\ menambahkan\ Item\ baru\ ke\ Database\r\n\ @param\ item\ Item\ yang\ ingin\ dimasukan\ ke\ Database\r\n\ @return\ nilai\ boolean\ apakah\ berhasil\ atau\ tidak\ pada\ saat\ memasukan\ Item\r\n
+comment3.params=item
+comment3.target=boolean\ removeItem(Item)
+comment3.text=\r\n\ Method\ ini\ merupakan\ method\ yang\ menghapus\ Item\ dari\ Database\r\n\ @param\ item\ Item\ yang\ ingin\ dihapus\ dari\ database\r\n\ @return\ nilai\ boolean\ apakah\ berhasil\ atau\ tidak\ pada\ saat\ menghapus\ Item\r\n
+comment4.params=
+comment4.target=Item\ getItemDB()
+comment4.text=\r\n\ Accessor\ Method\ untuk\ mengambil\ Item\ dari\ object\ DatabaseItem\r\n\ @return\ Item\ dari\ object\ DatabaseItem\r\n
+comment5.params=
+comment5.target=java.lang.String[]\ getItemDatabase()
+comment5.text=\r\n\ Accessor\ Method\ untuk\ mengambil\ List\ Array\ Item\ dari\ object\ DatabaseItem\r\n\ @return\ List\ Array\ Item\ dari\ object\ DatabaseItem\r\n
+numComments=6

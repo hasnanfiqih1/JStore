@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=ItemCategory
+comment0.text=\r\n\ Enumeration\ class\ ItemCategory\ -\ write\ a\ description\ of\ the\ enum\ class\ here\r\n\r\n\ @author\ (Afdal\ Ridho\ Arman)\r\n\ @version\ (Version\ 1.0\ 14.03.2019)\r\n
+comment1.params=status
+comment1.target=ItemCategory(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Sell_Installment
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Sell_Installment\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=id\ item\ totalItem\ installmentPeriod\ customer
+comment1.target=Sell_Installment(int,\ Item,\ int,\ int,\ Customer)
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment11.params=status
+comment11.target=void\ setInvoiceStatus(InvoiceStatus)
+comment2.params=
+comment2.target=int\ getInstallmentPeriod()
+comment3.params=
+comment3.target=int\ getInstallmentPrice()
+comment4.params=
+comment4.target=Customer\ getCustomer()
+comment5.params=
+comment5.target=InvoiceStatus\ getInvoiceStatus()
+comment6.params=
+comment6.target=InvoiceType\ getInvoiceType()
+comment7.params=totalPrice
+comment7.target=void\ setInstallmentPrice(int)
+comment8.params=installmentPeriod
+comment8.target=void\ setTotalPrice(int)
+comment9.params=customer
+comment9.target=void\ setCustomer(Customer)
+numComments=12
