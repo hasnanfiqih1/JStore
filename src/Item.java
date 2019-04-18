@@ -1,161 +1,134 @@
-
-/**
- * Write a description of class DatabaseCustomer here.
- *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
- */
-public class Item
-{
+public class Item {
     private int id;
     private String name;
-    private int stock;
     private int price;
-    private Supplier supplier;
-    private ItemStatus status;
     private ItemCategory category;
+    private ItemStatus status;
+    private Supplier supplier;
 
-
-    public Item(String name, int stock, int price, ItemCategory category,
-                ItemStatus status, Supplier supplier)
-    {
-        this.id = DatabaseItem.getLastItemId() + 1;
+    /**
+     * Constructor of Item
+     */
+    public Item(String name, ItemStatus status, int price, ItemCategory category, Supplier supplier) {
+        this.id = DatabaseItem.getLastItemID() + 1;
         this.name = name;
-        this.stock = stock;
         this.price = price;
         this.category = category;
-        this.status = status;
         this.supplier = supplier;
+        this.status = status;
+        this.category = category;
     }
-    
-    /**
-     * Accessor Method untuk mengambil nilai ID dari objek Item
-     * @return Nilai ID dari objek Item
-     */
+
     public int getId()
+    /**
+     * Accessor for ID
+     */
     {
         return id;
     }
-    
-    /**
-     * Accessor Method untuk mengambil String nama dari objek Item
-     * @return String nama dari objek Item
-     */
+
     public String getName()
+    /**
+     * Accessor for name value
+     */
     {
         return name;
     }
-    
-    /**
-    * Accessor Method untuk mengambil nilai Stock dari objek Item
-    * @return Nilai Stock dari objek Item
-    */
-    public int getStock()
-    {
-        return stock;
-    }
-    
-    /**
-    * Accessor Method untuk mengambil nilai harga dari objek Item
-    * @return Nilai harga dari objek Item
-    */
     public int getPrice()
+    /**
+     * Accessor for price value
+     */
     {
         return price;
     }
-    
-    /**
-     * Accessor Method untuk mengambil String kategori dari objek Item
-     * @return String kategori dari objek Item
-     */
+
     public ItemCategory getCategory()
+    /**
+     * Accessor for category value
+     */
     {
         return category;
     }
-    
+
     public ItemStatus getStatus()
+    /**
+     * Accessor for category value
+     */
     {
         return status;
     }
-    
-    /**
-     * Accessor Method untuk mengambil Supplier dari objek Item
-     * @return Supplier dari objek Item
-     */
+
     public Supplier getSupplier()
+    /**
+     * Accessor for supplier value
+     */
     {
         return supplier;
     }
-    
-    /**
-    * Mutator Method untuk mengubah ID dari objek Item
-    * @param id Nilai ID yang diinginkan
-    */
+
     public void setId(int id)
+    /**
+     * Mutator for id
+     */
     {
         this.id = id;
     }
-    
-    /**
-    * Mutator Method untuk mengubah Name dari objek Item
-    * @param name String Name yang diinginkan
-    */
+
     public void setName(String name)
-    {
-       this.name = name;
-    }
-    
     /**
-    * Mutator Method untuk mengubah Stock dari objek Item
-    * @param stock Nilai Stock yang diinginkan
-    */
-    public void setStock(int stock)
+     * Mutator for name
+     */
     {
-        this.stock = stock;
+        this.name = name;
     }
-    
-    /**
-    * Mutator Method untuk mengubah Price dari objek Item
-    * @param price Nilai Price yang diinginkan
-    */
     public void setPrice(int price)
+    /**
+     * Mutator for price
+     */
     {
         this.price = price;
     }
-    
-    /**
-    * Mutator Method untuk mengubah Category dari objek Item
-    * @param category String Category yang diinginkan
-    */
+
     public void setCategory(ItemCategory category)
+    /**
+     * Mutator for category
+     */
     {
         this.category = category;
     }
-    
-    public void setStatus(ItemStatus status)
+
+    public void setStatus(ItemStatus category)
+    /**
+     * Mutator for category
+     */
     {
         this.status = status;
     }
-    
-    /**
-    * Mutator Method untuk mengubah Supplier dari objek Item
-    * @param supplier Supplier yang diinginkan
-    */
+
     public void setSupplier(Supplier supplier)
+    /**
+     * Mutator for supplier
+     */
     {
         this.supplier = supplier;
     }
 
-    public String toString()
-    {
-        System.out.println("==========ITEM==========");
-        System.out.println("ID:" + id);
-        System.out.println("Name:" + name);
-        System.out.println("Stock:" + stock);
-        System.out.println("Price:" + price);
-        System.out.println("Category:" + category);
-        System.out.println("Status:" + status);
-        System.out.println("Supplier:" + supplier.getName());
-        return "";
+    // public void printData()
+    // /**
+    // * This method will print the name value of the instance
+    // */
+    // {
+    // System.out.println("==========Item===========");
+    // System.out.println("ID = " + id);
+    // System.out.println("Nama = " + name);
+    // System.out.println("Kategori = " + category);
+    // System.out.println("Status = " + status);
+    // System.out.println("Supplier = " + supplier.getName());
+    // System.out.println("=========================");
+    // }
+
+    public String toString() {
+        return "ID : " + id + "\nNama : " + name + "\nPrice : " + price + "\nCategory : " + category
+                + "\nStatus : " + status + "\nSupplier : " + supplier.getName() + "\n\n";
     }
 }

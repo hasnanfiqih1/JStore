@@ -1,22 +1,27 @@
 
 /**
- * Write a description of class DatabaseCustomer here.
+ * Enumeration class ItemStatus - write a description of the enum class here
  *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
+ * @author (your name here)
+ * @version (version number or date here)
  */
 public enum ItemStatus
 {
-   New ("New"), Second ("Second"), Refurbished ("Refurbished"), Sold ("Sold");
-    private String status;
+
+    New("New"), Second("Second"), Refurbished("Refurbished"), Sold("Sold)");
     
-    ItemStatus (String status)
+   private String ItemStatus;
+   
+    private ItemStatus(String ItemStatus)
     {
-        this.status = status;
+        this.ItemStatus = ItemStatus;
     }
-    public String toString()
-        {
-            return status;
-        }
     
+    private String ItemStatus()
+    {
+        return ItemStatus();
     }
+}
+    
+    
+

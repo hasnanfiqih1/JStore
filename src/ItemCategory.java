@@ -1,23 +1,23 @@
-
 /**
- * Write a description of class DatabaseCustomer here.
+ * Enumeration class ItemCategory 
  *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
+ * @author (your name here)
+ * @version (version number or date here)
  */
 public enum ItemCategory
-{
-    Electronics ("Electronics"), Furniture ("Furniture"), Stationery ("Stationery");
-    private String status;
-    
-    ItemCategory (String status)
-    {
-        this.status = status;
-    }
-    public String toString()
-        {
-            return status;
-        }
-    }
 
-   
+{
+    Electronics("Electronics"), Furniture("Furniture"), Stationery("Stationery");
+    
+    private String ItemCategory;
+    
+    private ItemCategory(String ItemCategory) 
+    {
+        this.ItemCategory = ItemCategory;
+    }
+    
+    private String ItemCategory()
+    {
+        return ItemCategory();
+    }
+}

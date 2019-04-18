@@ -1,40 +1,22 @@
 import java.util.*;
 
-/**
- * Write a description of class DatabaseCustomer here.
- *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
- */
-public class DatabaseCustomer
-{
+public class DatabaseCustomer {
+    // instance variables - replace the example below with your own
     private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
     private static int LAST_CUSTOMER_ID = 0;
 
-    public DatabaseCustomer()
-    {
-
-    }
-
-    public static ArrayList<Customer> getCustomerDatabase()
-    {
+    public static ArrayList<Customer> getCustomerDatabase() {
         return CUSTOMER_DATABASE;
     }
 
-    public static int getLastCustomerID()
-    {
+    public static int getLastCustomerID() {
         return LAST_CUSTOMER_ID;
     }
 
-    public static boolean addCustomer(Customer customer)
-    {
-        boolean found = false;
-        for(Customer temp : CUSTOMER_DATABASE)
-        {
-            if(temp.getName() == customer.getName() && temp.getEmail()
-                    == customer.getEmail())
-            {
-                return false;
+    public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException {
+        for (Customer customerDB : CUSTOMER_DATABASE) {
+            if (customerDB.getName() == customer.getName() && customerDB.getEmail() == customer.getEmail()) {
+                throw new CustomerAlreadyExistsException(customer);
             }
         }
         CUSTOMER_DATABASE.add(customer);
@@ -42,29 +24,23 @@ public class DatabaseCustomer
         return true;
     }
 
-    public static Customer getCustomer(int id)
-    {
-        for(Customer temp : CUSTOMER_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                return temp;
+    public static Customer getCustomer(int id) {
+        for (Customer customer : CUSTOMER_DATABASE) {
+            if (customer.getId() == id) {
+                return customer;
             }
         }
         return null;
     }
 
-    public boolean removeCustomer(int id)
-    {
-        for(Customer temp : CUSTOMER_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                CUSTOMER_DATABASE.remove(temp);
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException {
+        for (Customer customerDB : CUSTOMER_DATABASE) {
+            if (customerDB.getId() == id) {
+                CUSTOMER_DATABASE.remove(customerDB);
                 return true;
             }
         }
-        return false;
+        throw new CustomerNotFoundException(id);
     }
-    
+
 }

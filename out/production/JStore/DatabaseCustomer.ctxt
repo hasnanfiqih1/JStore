@@ -1,14 +1,13 @@
 #BlueJ class context
 comment0.target=DatabaseCustomer
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseCustomer\ here.\r\n\r\n\ @author\ (Afdal\ Ridho\ Arman)\r\n\ @version\ (04/04/2019)\r\n
 comment1.params=
-comment1.target=DatabaseCustomer()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DatabaseCustomer\r\n
-comment2.params=customer
-comment2.target=boolean\ addCustomer(Customer)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment1.target=java.util.ArrayList\ getCustomerDatabase()
+comment2.params=
+comment2.target=int\ getLastCustomerID()
 comment3.params=customer
-comment3.target=void\ removeCustomer(Customer)
-comment4.params=
-comment4.target=Customer[]\ getListCustomer()
-numComments=5
+comment3.target=boolean\ addCustomer(Customer)
+comment4.params=id
+comment4.target=Customer\ getCustomer(int)
+comment5.params=id
+comment5.target=boolean\ removeCustomer(int)
+numComments=6

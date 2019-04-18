@@ -1,41 +1,22 @@
 import java.util.*;
 
-/**
- * Write a description of class DatabaseCustomer here.
- *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
- */
-public class DatabaseSupplier
-{
+public class DatabaseSupplier {
+    // instance variables - replace the example below with your own
     private static ArrayList<Supplier> SUPPLIER_DATABASE = new ArrayList<Supplier>();
     private static int LAST_SUPPLIER_ID = 0;
 
-    public DatabaseSupplier()
-    {
-
-    }
-
-
-    public static ArrayList<Supplier> getSupplierDatabase()
-    {
+    public static ArrayList<Supplier> getSupplierDatabase() {
         return SUPPLIER_DATABASE;
     }
 
-    public static int getLastSupplierId()
-    {
+    public static int getLastSupplierID() {
         return LAST_SUPPLIER_ID;
     }
 
-    public static boolean addSupplier(Supplier supplier)
-    {
-        for(Supplier temp : SUPPLIER_DATABASE)
-        {
-            if((temp.getName() == supplier.getName()) &&
-                    (temp.getEmail() == supplier.getEmail()) &&
-                    (temp.getPhoneNumber() == supplier.getPhoneNumber()))
-            {
-                return false;
+    public static boolean addSupplier(Supplier supplier) throws SupplierAlreadyExistsException {
+        for (Supplier supplierDB : SUPPLIER_DATABASE) {
+            if ((supplierDB.getEmail() == supplier.getEmail()) && (supplierDB.getPhoneNumber() == supplier.getPhoneNumber())) {
+                throw new SupplierAlreadyExistsException(supplier);
             }
         }
         SUPPLIER_DATABASE.add(supplier);
@@ -43,29 +24,22 @@ public class DatabaseSupplier
         return true;
     }
 
-    public static Supplier getSupplier(int id)
-    {
-        for(Supplier temp : SUPPLIER_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                return temp;
+    public static Supplier getSupplier(int id) {
+        for (Supplier supplierDB : SUPPLIER_DATABASE) {
+            if (supplierDB.getId() == id) {
+                return supplierDB;
             }
         }
         return null;
     }
 
-    public static boolean removeSupplier(int id)
-    {
-        for(Supplier temp : SUPPLIER_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                DatabaseItem.getItemFromSupplier(temp).clear();
+    public static boolean removeSupplier(int id) throws SupplierNotFoundException {
+        for (Supplier supplierDB : SUPPLIER_DATABASE) {
+            if (supplierDB.getId() == id) {
+                DatabaseItem.getItemFromSupplier(supplierDB).clear();
                 return true;
             }
         }
-        return false;
+        throw new  SupplierNotFoundException(id);
     }
-
 }

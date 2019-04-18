@@ -1,115 +1,97 @@
 import java.util.*;
 
-public abstract class Invoice
-{
-    //variabel yang dipakai
+public abstract class Invoice {
+    // Instance Variables
     private int id;
     private ArrayList<Integer> item;
-    private Calendar date;
+    private Calendar date = Calendar.getInstance();
     private int totalPrice;
-    private boolean isActive;
+    private boolean isActive = true;
     private Customer customer;
-    private static InvoiceStatus status;
 
-    
-    
-    //Konstruktor dari kelas Invoice   
-    public Invoice(ArrayList<Integer> item)
-    {
-        this.id = DatabaseInvoice.getLastInvoiceId() + 1;
+    /**
+     * Constructor
+     */
+    public Invoice(ArrayList<Integer> item) {
         this.item = item;
-        this.date = new GregorianCalendar();
+        id = DatabaseInvoice.getLastInvoiceID() + 1;
+        // this.totalPrice = totalItem * item.getPrice();
     }
 
-    //Menampilkan nomor id invoice    
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    //Menampilkan nama Item
-    public ArrayList<Integer> getItem()
-    {
+    public ArrayList<Integer> getItem() {
         return item;
     }
 
-    //Menampilkan tanggal    
-    public Calendar getDate()
-    {
+    public Calendar getDate() {
         return date;
     }
 
-    //Menampilkan total harga  
-    public int getTotalPrice()
-    {
+    public int getTotalPrice() {
         return totalPrice;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     public abstract InvoiceStatus getInvoiceStatus();
 
     public abstract InvoiceType getInvoiceType();
 
-    public boolean getIsActive()
-    {
-        return isActive;
-    }
-
-    public Customer getCustomer()
-    {
-        return customer;
-    }
-
-    //Menampilkan Status Invoice
-    //public abstract InvoiceStatus getInvoiceStatus();
-    
-   // public abstract InvoiceType getInvoiceType();
-    
-    //Mengubah id Item    
     public void setId(int id)
+    /***
+     * Mutator for ID
+     */
     {
         this.id = id;
     }
 
-    //Mengubah nama Item    
     public void setItem(ArrayList<Integer> item)
+    /***
+     * Mutator for Item
+     */
     {
         this.item = item;
     }
 
-    //Mengubah tanggal    
     public void setDate(Calendar date)
+    /***
+     * Mutator for Date
+     */
     {
         this.date = date;
     }
 
-    //Mengubah total harga    
     public void setTotalPrice(int totalPrice)
+    /***
+     * Mutator for Total Price
+     */
     {
         ArrayList<Integer> listItemID = DatabaseInvoice.getInvoice(id).getItem();
-        for(int tempID : listItemID)
-        {
-            this.totalPrice = totalPrice + DatabaseItem.getItemFromID(tempID).getPrice();
+        for (int invoice : listItemID) {
+            this.totalPrice = totalPrice + DatabaseItem.getItemFromID(invoice).getPrice();
         }
     }
 
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        status = status;
+    public void setInvoiceStatus(InvoiceStatus status) {
+        // this.status = status;
     }
 
-    //Mengubah total item  
-    public void setIsActive(boolean isActive)
-    {
+    public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
 
-    public void setCustomer(Customer customer)
-    {
-        this.customer = customer;
-    }
-
-    //Mengganti InvoiceStatus 
-    //public abstract void setInvoiceStatus(InvoiceStatus status);
-    
-    //public abstract String toString();
+    public abstract String toString();
+    // public abstract void printData();
+    // public String toString() {
+    // return toString();
+    // }
 }

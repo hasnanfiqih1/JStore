@@ -1,21 +1,24 @@
 
 /**
- * Write a description of class DatabaseCustomer here.
+ * Enumeration class InvoiceStatus - write a description of the enum class here
  *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
+ * @author (your name here)
+ * @version (version number or date here)
  */
 public enum InvoiceStatus
-{
-    Paid ("Paid"), Unpaid ("Unpaid"), Installment ("Installment");
-    private String status;
-    
-    InvoiceStatus (String status)
     {
-        this.status = status;
+    Paid("Paid"), Unpaid("Unpaid"), Installment("Installment");
+    
+    private String InvoiceStatus;
+    
+    private InvoiceStatus(String InvoiceStatus) 
+    {
+        this.InvoiceStatus = InvoiceStatus;
     }
-    public String toString()
-        {
-            return status;
-        }
+    
+    private String InvoiceStatus()
+    {
+        return InvoiceStatus();
     }
+}
+

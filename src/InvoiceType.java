@@ -1,20 +1,24 @@
+
 /**
- * Write a description of class DatabaseCustomer here.
+ * Enumeration class InvoiceType - write a description of the enum class here
  *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
+ * @author (your name here)
+ * @version (version number or date here)
  */
 public enum InvoiceType
+
 {
-    Buy ("Buy"), Sell ("Sell");
-    private String deskripsi;
+    Buy("Buy"), Sell("Sell");
     
-    InvoiceType (String deskripsi)
+    private String InvoiceType;
+    
+    private InvoiceType(String InvoiceType) 
     {
-        this.deskripsi = deskripsi;
+        this.InvoiceType = InvoiceType;
     }
-    public String toString()
-        {
-            return deskripsi;
-        }
+    
+    private String InvoiceType()
+    {
+        return InvoiceType();
+    }
 }

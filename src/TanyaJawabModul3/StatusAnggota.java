@@ -1,4 +1,4 @@
-package TanyaJawabModul3;
+package tanyajawabmodul3;
 
 
 /**
@@ -11,15 +11,16 @@ public enum StatusAnggota
 {
     Active("Aktif"), Inactive("Hiatus"), Out("Keluar");
     
-    private String value;
-    
-    private StatusAnggota (String value)
+    private String StatusAnggota;
+   
+    private StatusAnggota(String StatusAnggota)
     {
-        this.value = value;
+        this.StatusAnggota = StatusAnggota;
     }
     
-    public String value()
+    private String StatusAnggota()
     {
-        return value;
+        return StatusAnggota;
     }
+    
 }

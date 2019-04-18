@@ -1,4 +1,4 @@
-package TanyaJawabModul3;
+package tanyajawabmodul3;
 
 
 /**
@@ -9,9 +9,11 @@ package TanyaJawabModul3;
  */
 public class Main
 {
-        public static void main (String[] args)
-        {
-            Anggota anggota1 = new Anggota(args[0], StatusAnggota.Active, args[1]);
-            anggota1.printData();
-        }
+        public static void main(String args[]) 
+    {
+        Anggota anggota1 = new Anggota(args[0], StatusAnggota.Active, args[1]);
+        
+        System.out.println("-----Anggota-----");
+        anggota1.printData();
+    }
 }

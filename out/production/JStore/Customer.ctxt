@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Customer
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Customer\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=name\ email\ username\ password\ id\ birthDate
-comment1.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ java.util.Calendar)
+comment1.params=name\ email\ username\ password\ birthDate
+comment1.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.Calendar)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Customer\r\n
 comment10.params=email
 comment10.target=void\ setEmail(java.lang.String)
 comment11.params=username
@@ -17,8 +18,8 @@ comment15.params=year\ month\ dayOfMonth
 comment15.target=void\ setBirthDate(int,\ int,\ int)
 comment16.params=
 comment16.target=java.lang.String\ toString()
-comment2.params=name\ email\ username\ password\ id\ year\ month\ dayOfMonth
-comment2.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int,\ int)
+comment2.params=name\ email\ username\ password\ year\ month\ dayOfMonth
+comment2.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int)
 comment3.params=
 comment3.target=java.lang.String\ getName()
 comment4.params=

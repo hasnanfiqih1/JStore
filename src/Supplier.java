@@ -1,125 +1,121 @@
-
 /**
- * Write a description of class DatabaseCustomer here.
+ * Supplier Class
  *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
+ * @Senna Faris
+ * @version 28/02/19
  */
-public class Supplier
-{
+public class Supplier {
     private int id;
     private String name;
     private String email;
     private String phoneNumber;
     private Location location;
 
-
-    public Supplier(String name, String email, String phoneNumber, Location location)
-    {
-        this.id=DatabaseSupplier.getLastSupplierId() + 1;
-        this.name=name;
-        this.email=email;
-        this.phoneNumber=phoneNumber;
-        this.location=location;
-    }
-    
     /**
-     * Accessor Method untuk mengambil nilai ID dari objek Supplier
-     * @return Nilai ID dari objek Supplier
+     * Constructor
      */
+    public Supplier(String name, String email, String phoneNumber, Location location) {
+        this.id = DatabaseSupplier.getLastSupplierID() + 1;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
+    }
+
     public int getId()
+    /***
+     * Accessor for ID
+     */
     {
         return id;
     }
-    
-    /**
-     * Accessor Method untuk mengambil String nama dari objek Supplier
-     * @return String nama dari objek Supplier
-     */
+
     public String getName()
+    /***
+     * Accessor for name
+     */
     {
         return name;
     }
-    
-    /**
-     * Accessor Method untuk mengambil String alamat email dari objek Supplier
-     * @return String email dari objek Supplier
-     */
+
     public String getEmail()
+    /***
+     * Accessor for email
+     */
     {
         return email;
     }
-    
-    /**
-     * Accessor Method untuk mengambil String nomor telepon dari objek Supplier
-     * @return String PhoneNumber dari objek Supplier
-     */
+
     public String getPhoneNumber()
+    /***
+     * Accessor for Phone Number
+     */
     {
         return phoneNumber;
     }
-    
-    /**
-     * Accessor Method untuk mengambil lokasi dari objek Supplier
-     * @return Location dari objek Supplier
-     */
+
     public Location getLocation()
+    /***
+     * Accessor for Location
+     */
     {
         return location;
     }
-    
-    /**
-    * Mutator Method untuk mengubah ID dari objek Supplier
-    * @param id Nilai ID yang diinginkan
-    */
+
     public void setId(int id)
-    {
-        this.id=id;
-    }
-    
-    /**
-     * Mutator Method untuk mengubah nama dari objek Supplier
-     * @param name String name yang diinginkan
+    /***
+     * Mutator of ID
      */
-    public void setName(String name)
     {
-        this.name=name;
-    }
-    
-    /**
-    * Mutator Method untuk mengubah Email dari objek Supplier
-    * @param email String Email yang diinginkan
-    */
-    public void setEmail(String email){
-        this.email=email;
-    }
-    
-    /**
-     * Mutator Method untuk mengubah nomor telepon dari objek supplier
-     * @param phoneNumber String PhoneNumber yang diinginkan
-     */
-    public void setPhoneNumber(String phoneNumber)
-    {
-        this.phoneNumber=phoneNumber;
-    }
-    
-    /**
-    * Mutator Method untuk mengubah Location dari objek Supplier
-    * @param location Location yang diinginkan
-    */
-    public void setLocation(Location location)
-    {
-       this.location=location;
+        this.id = id;
     }
 
-    public String toString()
+    public void setName(String name)
+    /***
+     * Mutator of name
+     */
     {
-        System.out.println("==========SUPPLIER==========");
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
-        System.out.println("PhoneNumber: " + phoneNumber);
-        System.out.println("Location: " + location.getCity());
-        return "";
+        this.name = name;
+    }
+
+    public void setEmail(String email)
+    /***
+     * Mutator of email
+     */
+    {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber)
+    /***
+     * Mutator of Phone Number
+     */
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setLocation(Location location)
+    /***
+     * Mutator of Location
+     */
+    {
+        this.location = location;
+    }
+
+    /**
+     * This method is to print the name value of the instance
+     */
+    // public void printData()
+    // {
+    // System.out.println("Supplier dan ID");
+    // System.out.println("ID = " + id);
+    // System.out.println("Nama = " + name);
+    // System.out.println("Email = " + email);
+    // System.out.println("No. Telpon = " + phoneNumber);
+    // System.out.println("Lokasi = " + location.getProvince());
+    // }
+    public String toString() {
+        return "ID : " + id + "\nNama : " + name + "\nEmail : " + email + "\nTelpon : " + phoneNumber + "\nLokasi : "
+                + location.getProvince()+ "\n\n";
     }
 }

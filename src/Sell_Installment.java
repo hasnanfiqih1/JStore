@@ -1,99 +1,99 @@
 import java.util.*;
-import java.text.*;
 
 /**
- * Write a description of class DatabaseCustomer here.
+ * Write a description of class Sell_Installment here.
  *
- * @author Hasnan Fiqih
- * @version (04/04/2019)
+ * @author (your name)
+ * @version (a version number or a date)
  */
-
-public class Sell_Installment extends Invoice
-{
-    
+public class Sell_Installment extends Invoice {
+    // instance variables - replace the example below with your own
     private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS =InvoiceStatus.Installment;
+    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
-    private boolean isActive;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat ("dd MMM yyy");
+    private boolean isActive = true;
 
-
-    public Sell_Installment(ArrayList<Integer> item, int installmentPeriod, Customer customer)
-    {
+    /**
+     * Constructor for objects of class Sell_Installment
+     */
+    public Sell_Installment(ArrayList<Integer> item, int installmentPeriod, Customer customer) {
         super(item);
         this.installmentPeriod = installmentPeriod;
-        this.isActive = true;
+        this.installmentPrice = installmentPrice;
+        this.customer = customer;
     }
 
-    public int getInstallmentPeriod()
-    {
-        return installmentPeriod;
-        
-    }
-    
-    public int getInstallmentPrice()
-    {
-        return installmentPrice;
-    }
-    
-    public Customer getCustomer()
-    {
-        return customer;
-    }
-    
-    public InvoiceStatus getInvoiceStatus()
-    {
+    public InvoiceStatus getInvoiceStatus() {
         return INVOICE_STATUS;
     }
-    
-    public InvoiceType getInvoiceType()
-    {
+
+    public InvoiceType getInvoiceType() {
         return INVOICE_TYPE;
     }
-    
-    public void setInstallmentPrice(int totalPrice)
-    {
-        installmentPrice =(int)(1.02* (totalPrice/installmentPeriod));
-    }
-    
-    public void setTotalPrice(int installmentPeriod)
-    {
-        int totalPrice=installmentPrice * installmentPeriod;
-        super.setTotalPrice(totalPrice);
-    }
-    
-    public void setCustomer(Customer customer)
-    {
-        this.customer=customer;
+
+    public int getInstallmentPeriod() {
+        return installmentPeriod;
     }
 
-    public String toString()
-    {
-        System.out.println("ID = " + super.getId());
-        ArrayList<Integer> listItemID = DatabaseInvoice.getInvoice(super.getId()).getItem();
-        for(int tempID : listItemID)
-        {
-            System.out.println("Item = " +
-                    DatabaseItem.getItemFromID(tempID).getName());
-            System.out.println("Price = " +
-                    DatabaseItem.getItemFromID(tempID).getPrice());
-            System.out.println("Supplier ID = " +
-                    DatabaseItem.getItemFromID(tempID).getSupplier().getId());
-            System.out.println("Supplier name = " +
-                    DatabaseItem.getItemFromID(tempID).getSupplier().getName());
+    public int getInstallmentPrice() {
+        return installmentPrice;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setInstallmentPrice() {
+        // this.installmentPrice = totalPrice / installmentPeriod * 102 / 100;
+    }
+
+    public void setTotalPrice() {
+        // this.totalPrice = installmentPrice * installmentPeriod;
+    }
+
+    public void setInvoiceStatus(InvoiceStatus status) {
+    }
+
+    public void setCustomer() {
+        this.customer = customer;
+    }
+
+    // public void printData()
+    // {
+    // System.out.println("========Invoice========");
+    // System.out.println("ID = " + getId());
+    // System.out.println("Item = " + getItem().getName());
+    // System.out.println("Tanggal = " + getDate());
+    // System.out.println("Jumlah = " + getTotalItem());
+    // System.out.println("Status = " + INVOICE_STATUS);
+    // System.out.println("Tipe = " + INVOICE_TYPE);
+    // System.out.println("Periode Pemasangan = " + installmentPeriod);
+    // System.out.println("Harga Pemasangan = " + installmentPrice);
+    // //System.out.println("Total Harga = " + totalPrice);
+    // System.out.println("=========================");
+    // }
+    public String toString() {
+        String string = "=====Invoice=====";
+        string += "\nID = " + getId();
+        string += "\nBuy date = " + getDate().getTime();
+        for (Integer invoice : getItem()) {
+            Item item = DatabaseItem.getItemFromID(invoice.intValue());
+            string += "\nItem = " + item.getName();
+            string += "\nAmount = " + getItem().size();
+            string += "\nPrice = " + item.getPrice();
+            string += "\nSupplier ID = " + item.getSupplier().getId();
+            string += "\nSupplier Name = " + item.getSupplier().getName();
         }
-        System.out.println("Buy date = " + dateFormat.format(super.getDate().getTime()));
-        System.out.println("Price total = " + super.getTotalPrice());
-        System.out.println("Installment price = " + installmentPrice);
-        System.out.println("Customer ID = " + customer.getId());
-        System.out.println("Customer name = " + customer.getName());
-        System.out.println("Status = " + INVOICE_STATUS);
-        System.out.println("Installment period = " + installmentPeriod);
-        System.out.println("Sell success.");
-        return "";
+        string += "\nTotal Price = " + getTotalPrice();
+        string += "\nInstallment Price = " + installmentPrice;
+        string += "\nCustomer ID = " + customer.getId();
+        string += "\nCustomer Name = " + customer.getName();
+        string += "\nStatus = " + INVOICE_STATUS;
+        string += "\nAktif = " + DatabaseInvoice.getInvoice(getId()).getIsActive();
+        string += "\nInstallment period = " + installmentPeriod;
+        string += "\nSell Success";
+        return string;
     }
-
-    
 }
