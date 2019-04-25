@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=JStore
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=void\ transaction()
-comment3.params=
-comment3.target=JStore()
-numComments=4
