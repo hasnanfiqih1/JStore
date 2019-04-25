@@ -31,6 +31,14 @@ public class CustomerController {
         return customer;
     }
 
+    @RequestMapping("/logincust")
+    public Customer loginCust(@RequestParam(value="email") String email,
+                              @RequestParam(value="password")String password)
+    {
+        Customer customer = DatabaseCustomer.getCustomerLogin(email, password);
+        return customer;
+    }
+
     @RequestMapping("/getcustomer/{id}")
     public Customer getCust(@PathVariable int id) {
         Customer customer = DatabaseCustomer.getCustomer(id);

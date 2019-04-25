@@ -15,7 +15,7 @@ public abstract class Invoice {
      */
     public Invoice(ArrayList<Integer> item) {
         this.item = item;
-        id = DatabaseInvoice.getLastInvoiceID() + 1;
+        id = DatabaseInvoice.getLastInvoiceId() + 1;
         // this.totalPrice = totalItem * item.getPrice();
     }
 
