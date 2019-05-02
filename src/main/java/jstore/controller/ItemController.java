@@ -1,30 +1,24 @@
 package jstore.controller;
 
-import jstore.DatabaseItem;
-import jstore.Item;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+
+import jstore.*;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+
 @RestController
 public class ItemController {
-    @RequestMapping(value="/items", method = RequestMethod.GET)
-    public ArrayList<Item> itemList()
-    {
+
+    @RequestMapping(value = "/items" , method = RequestMethod.GET)
+    public ArrayList<Item> itemsList(){
         ArrayList<Item> items = DatabaseItem.getItemDatabase();
         return items;
     }
 
-
-    @RequestMapping("/items/{id}")
-    public Item getItem(@PathVariable int id)
-    {
-        Item item_id = DatabaseItem.getItemFromID(id);
+    @RequestMapping(value = "/items/{id_item}", method = RequestMethod.GET)
+    public Item getItemFromId(@PathVariable int id_item) {
+        Item item_id = DatabaseItem.getItemFromID(id_item);
         return item_id;
     }
-
 }
-

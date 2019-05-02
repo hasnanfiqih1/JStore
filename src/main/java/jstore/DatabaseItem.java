@@ -1,94 +1,76 @@
 package jstore;
-import java.util.*;
+import java.util.ArrayList;
 
-public class DatabaseItem {
-    private static ArrayList<Item> ITEM_DATABASE = new ArrayList<Item>();
-    private static int LAST_ITEM_ID = 0;
-
-    public static ArrayList<Item> getItemDatabase() {
-        return ITEM_DATABASE;
+public class DatabaseItem
+{
+   //inisialisasi Variabel
+   private static ArrayList<Item> ITEM_DATABASE = new ArrayList<>();
+   private static int LAST_ITEM_ID = 0;
+   //temporary variable
+   private static ArrayList<Item> tempList;
+  public static ArrayList<Item> getItemDatabase(){
+  return ITEM_DATABASE; 
+  }
+  
+  public static int getLastItemId(){
+   return LAST_ITEM_ID; 
+   }
+ 
+  public static boolean addItem(Item item) throws ItemAlreadyExistsException{
+   for(Item it: ITEM_DATABASE){
+        if((item.getName() == it.getName()) && (item.getStatus() == it.getStatus()) && item.getSupplier() == it.getSupplier() && (item.getCategory() == it.getCategory())){
+            throw new ItemAlreadyExistsException(item);
+        }    
     }
-
-    public static int getLastItemID() {
-        return LAST_ITEM_ID;
+    ITEM_DATABASE.add(item);
+    LAST_ITEM_ID = item.getId();
+    return true;
     }
-
-    public static boolean addItem(Item item) throws ItemAlreadyExistsException {
-        for (Item itemDB : ITEM_DATABASE) {
-            if ((item.getName() == itemDB.getName()) && (item.getStatus() == itemDB.getStatus())
-                    && (item.getSupplier() == itemDB.getSupplier()) && (item.getCategory() == itemDB.getCategory())) {
-                throw new ItemAlreadyExistsException(item);
-            }
-        }
-        ITEM_DATABASE.add(item);
-        LAST_ITEM_ID = item.getId();
-        return true;
-    }
-
-    public static Item getItemFromID(int id) {
-        for (Item itemDB : ITEM_DATABASE) {
-            if (itemDB.getId() == id) {
-                return itemDB;
-            }
+  
+  public static Item getItemFromID(int id){
+  for (Item item : ITEM_DATABASE) {
+            if (item.getId() == id) {
+                return item;
+            } 
         }
         return null;
+  }
+  public static ArrayList<Item> getItemFromSupplier(Supplier supplier){
+      for(Item item: ITEM_DATABASE){
+      if(item.getSupplier() == supplier){
+      tempList.add(item);  
+      } else {
+      return null;
+      }
+      }
+      return tempList;
+  }
+  public static ArrayList<Item> getItemFromCategory(ItemCategory category){
+      for(Item item: ITEM_DATABASE){
+      if(item.getCategory() == category){
+      tempList.add(item);  
+      } else {
+      return null;
+      }
+      }
+      return tempList;
+  }
+  public static ArrayList<Item> getItemFromStatus(ItemStatus status){
+      for(Item item: ITEM_DATABASE){
+      if(item.getStatus() == status){
+      tempList.add(item);  
+      } 
+      }
+      return tempList;
+  }
+  public static boolean removeItem(int id) throws ItemNotFoundException{
+      for(Item item : ITEM_DATABASE){
+      if(item.getId() == id){
+      ITEM_DATABASE.remove(item);
+      return true;
+      } 
     }
-
-    public static ArrayList<Item> getItemFromSupplier(Supplier supplier) {
-        boolean temp = false;
-        ArrayList<Item> list = new ArrayList<>();
-        for (Item itemDB : ITEM_DATABASE) {
-            if (itemDB.getSupplier() == supplier) {
-                list.add(itemDB);
-                temp = true;
-            }
-        }
-        if (temp) {
-            return list;
-        } else {
-            return null;
-        }
-    }
-
-    public static ArrayList<Item> getItemFromCategory(ItemCategory category) {
-        boolean temp = false;
-        ArrayList<Item> list = new ArrayList<Item>();
-        for (Item itemDB : ITEM_DATABASE) {
-            if (itemDB.getCategory() == category) {
-                list.add(itemDB);
-                temp = true;
-            }
-        }
-        if (temp) {
-            return list;
-        } else {
-            return null;
-        }
-    }
-
-    public static ArrayList<Item> getItemFromStatus(ItemStatus status) {
-        boolean temp = false;
-        ArrayList<Item> list = new ArrayList<Item>();
-        for (Item itemDB : ITEM_DATABASE) {
-            if (itemDB.getStatus() == status) {
-                list.add(itemDB);
-                temp = true;
-            }
-        }
-        if (temp) {
-            return list;
-        } else {
-            return null;
-        }
-    }
-
-    public static boolean removeItem(int id) throws ItemNotFoundException {
-        for (Item itemDB : ITEM_DATABASE) {
-            if (itemDB.getId() == id) {
-                ITEM_DATABASE.remove(itemDB);
-                return true;
-            }
-        }
-        throw new ItemNotFoundException(id);
-    }
+      throw new ItemNotFoundException(id);
+      //return false;
+  }
 }

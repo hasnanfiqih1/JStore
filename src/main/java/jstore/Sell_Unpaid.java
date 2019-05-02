@@ -1,76 +1,66 @@
 package jstore;
-import java.util.*;
-
+import java.util.Calendar;
+import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 /**
  * Write a description of class Sell_Unpaid here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Sell_Unpaid extends Invoice {
-    // instance variables - replace the example below with your own
-    private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
-    private Calendar dueDate = Calendar.getInstance();
-    private Customer customer;
-    private boolean isActive = true;
-
-    /**
-     * Constructor for objects of class Sell_Unpaid
-     */
-    public Sell_Unpaid(ArrayList<Integer> item, Customer customer) {
-        super(item);
-        this.customer = customer;
-        this.dueDate.add(Calendar.DATE, 1);
-        
+public class Sell_Unpaid extends Invoice
+{
+   private static InvoiceType INVOICE_TYPE=InvoiceType.SELL;
+   private static InvoiceStatus INVOICE_STATUS=InvoiceStatus.UNPAID;
+   private Calendar dueDate;
+   private Customer customer;
+    private SimpleDateFormat form = new SimpleDateFormat ("dd MMMM yyyy");
+   private boolean isActive;
+   public Sell_Unpaid(ArrayList<Integer> item, Customer customer){
+       super(item);
+       this.customer = customer;
+       isActive = true;
+   }
+   public InvoiceStatus getInvoiceStatus(){
+    return INVOICE_STATUS;
+   }
+   public InvoiceType getInvoiceType(){
+    return INVOICE_TYPE;
+   }
+   public Customer getCustomer(){
+   return customer; 
+   }
+   public Calendar getDueDate(){
+    return dueDate;
+   }
+   public void setCustomer(Customer customer){
+   this.customer = customer;
+   }
+   public void setDueDate(Calendar dueDate){
+   this.dueDate = dueDate; 
+   }
+    public void setIsActive(boolean isActive){
+        this.isActive=isActive;
     }
-
-    public InvoiceStatus getInvoiceStatus() {
-        return INVOICE_STATUS;
+    public boolean getIsActive(){
+        return isActive;
     }
-
-    public InvoiceType getInvoiceType() {
-        return INVOICE_TYPE;
+       public void setInvoiceStatus(InvoiceStatus status){
     }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public Calendar getDueDate() {
-        return dueDate;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public void setDueDate(Calendar dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    public void setInvoiceStatus(InvoiceStatus status) {
-    }
-
-    public String toString() {
-        String string = "=====Invoice=====";
-        string += "\nID = " + getId();
-        string += "\nBuy date = " + getDate().getTime();
-        for (Integer invoice : getItem()) {
-            Item item = DatabaseItem.getItemFromID(invoice.intValue());
-            string += "\nItem = " + item.getName();
-            string += "\nAmount = " + getItem().size();
-            string += "\nPrice = " + item.getPrice();
-            string += "\nSupplier ID = " + item.getSupplier().getId();
-            string += "\nSupplier Name = " + item.getSupplier().getName();
+    public String toString(){
+        System.out.println("=========INVOICE==========");
+       System.out.println("ID = " + super.getId());
+        for(int id : DatabaseInvoice.getInvoice(super.getId()).getItem())
+        {
+            System.out.println("Item = " + DatabaseItem.getItemFromID(id).getName());
+            System.out.println("Price = " + DatabaseItem.getItemFromID(id).getPrice());
+            System.out.println("Supplier Id = " + DatabaseItem.getItemFromID(id).getSupplier().getId());
+            System.out.println("Supplier Name = " + DatabaseItem.getItemFromID(id).getSupplier().getName());
         }
-        string += "\nTotal Price = " + getTotalPrice();
-        string += "\nCustomer ID = " + customer.getId();
-        string += "\nCustomer Name = " + customer.getName();
-        string += "\nStatus = " + INVOICE_STATUS;
-        string += "\nDue date = " + getDueDate().getTime();
-        string += "\nAktif = " + DatabaseInvoice.getInvoice(getId()).getIsActive();
-        string += "\nIf payment is not received by due date, transaction will be cancelled.";
-        return string;
-    }
+        System.out.println("Sell date = " + form.format(super.getDate().getTime()));
+        System.out.println("Total Price = " + super.getTotalPrice());
+        System.out.println("Status = " + getInvoiceStatus());
+        System.out.println("is Active = " + getIsActive());
+        return "";   
+   }
 }

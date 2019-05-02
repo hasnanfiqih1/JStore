@@ -1,135 +1,126 @@
 package jstore;
-public class Item {
-    private int id;
-    private String name;
-    private int price;
-    private ItemCategory category;
-    private ItemStatus status;
-    private Supplier supplier;
-
-    /**
-     * Constructor of Item
-     */
-    public Item(String name, ItemStatus status, int price, ItemCategory category, Supplier supplier) {
-        this.id = DatabaseItem.getLastItemID() + 1;
-        this.name = name;
-        this.price = price;
-        this.category = category;
-        this.supplier = supplier;
-        this.status = status;
-        this.category = category;
+/**
+ * Class Item merupakan suatu class yang mendefinisikan suatu barang baru
+ * yang nantinya ingin kita masukan. Class ini sudah dilengkapi dengan method
+ * getter dan setter yang akan memudahkan apabila nanti kita akan mengambil
+ * nilai dari variabel atau ingin memodifikasinya.
+ *
+ * @author Michael
+ * @version 28/02/2019
+ */
+public class Item
+{
+ // Inisialisasi Variabel
+ private int id;
+ private String name;
+// private int stock;
+ private int price;
+ private ItemCategory category;
+ private ItemStatus status;
+ private Supplier supplier;
+ 
+ //Constructor untuk Class Item
+ public Item(String name,ItemStatus status,int price, Supplier supplier,ItemCategory category){
+    id = DatabaseItem.getLastItemId() + 1;
+    this.name = name;
+//    this.stock = stock;
+    this.status = status;
+    this.price = price;
+    this.supplier = supplier;
+    this.category = category;
     }
-
-    public int getId()
-    /**
-     * Accessor for ID
-     */
-    {
-        return id;
+ /**Method untuk mendapatkan Id dari Item   
+  * @return int return nilai Id
+  */  
+ public int getId(){
+    return id;
     }
-
-    public String getName()
-    /**
-     * Accessor for name value
-     */
-    {
-        return name;
+ /**Method untuk mendapatkan name dari Item   
+  * @return String return isi dari name
+  */   
+ public String getName(){
+    return name;
     }
-    public int getPrice()
-    /**
-     * Accessor for price value
-     */
-    {
-        return price;
-    }
+ /**Method untuk mendapatkan stock dari Item   
+  * @return int return nilai stock
+  */        
 
-    public ItemCategory getCategory()
-    /**
-     * Accessor for category value
-     */
-    {
-        return category;
+  /**Method untuk mendapatkan price dari Item   
+  * @return int return nilai price
+  */       
+ public int getPrice(){
+    return price;
     }
-
-    public ItemStatus getStatus()
-    /**
-     * Accessor for category value
-     */
-    {
-        return status;
+  /**Method untuk mendapatkan category dari Item   
+  * @return String return isi dari category
+  */        
+ public ItemCategory getCategory(){
+    return category;
     }
-
-    public Supplier getSupplier()
-    /**
-     * Accessor for supplier value
-     */
-    {
-        return supplier;
+  /**Method untuk mendapatkan status dari Item   
+  * @return String return isi dari category
+  */        
+ public ItemStatus getStatus(){
+    return status;
+    }    
+  /**Method untuk mendapatkan supplier dari Item   
+  * @return Supplier return isi dari supplier
+  */       
+ public Supplier getSupplier(){
+    return supplier;
     }
-
-    public void setId(int id)
-    /**
-     * Mutator for id
-     */
-    {
-        this.id = id;
+ /**Method untuk mengganti id dari Item   
+  * @param id Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai id
+  */    
+ public void setId(int id){
+    this.id = id;
     }
-
-    public void setName(String name)
-    /**
-     * Mutator for name
-     */
-    {
-        this.name = name;
+ /**Method untuk mengganti name dari Item   
+  * @param name Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai name
+  */   
+ public void setName(String name){
+    this.name = name;
     }
-    public void setPrice(int price)
-    /**
-     * Mutator for price
-     */
-    {
-        this.price = price;
+ /**Method untuk mengganti stock dari Item   
+  * @param stock Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai stock
+  */  
+
+ /**Method untuk mengganti price dari Item   
+  * @param price Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai price
+  */   
+ public void setPrice(int price){
+    this.price = price;
     }
-
-    public void setCategory(ItemCategory category)
-    /**
-     * Mutator for category
-     */
-    {
-        this.category = category;
+ /**Method untuk mengganti category dari Item   
+  * @param category Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai category
+  */ 
+ public void setCategory(ItemCategory category){
+    this.category = category;
     }
-
-    public void setStatus(ItemStatus category)
-    /**
-     * Mutator for category
-     */
-    {
-        this.status = status;
+ /**Method untuk mengganti supplier dari Item   
+  * @param supplier Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai supplier
+  */   
+ public void setSupplier(Supplier supplier){
+    this.supplier = supplier;
     }
-
-    public void setSupplier(Supplier supplier)
-    /**
-     * Mutator for supplier
-     */
-    {
-        this.supplier = supplier;
-    }
-
-    // public void printData()
-    // /**
-    // * This method will print the name value of the instance
-    // */
-    // {
-    // System.out.println("==========Item===========");
-    // System.out.println("ID = " + id);
-    // System.out.println("Nama = " + name);
-    // System.out.println("Kategori = " + category);
-    // System.out.println("Status = " + status);
-    // System.out.println("Supplier = " + supplier.getName());
-    // System.out.println("=========================");
-    // }
-
-    public String toString() {
-        return "ID : " + id + "\nNama : " + name + "\nPrice : " + price + "\nCategory : " + category
-                + "\nStatus : " + status + "\nSupplier : " + supplier.getName() + "\n\n";
+ /**Method untuk mengganti status dari Item   
+  * @param category Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai category
+  */ 
+ public void setStatus(ItemStatus status){
+    this.status = status;
+    }    
+ /**Method untuk menampilkan nama dari Item ke standard output.
+  */ 
+ public String toString(){
+    return ("=============ITEM=============" + "\nId : " + id + 
+    "\nNama: " + name + "\nKategori: " + category +
+    "\nStatus: " + status.toString() + "\nSupplier: " + supplier.getName() ); 
     }
 }

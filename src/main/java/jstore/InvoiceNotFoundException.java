@@ -1,15 +1,13 @@
 package jstore;
-public class InvoiceNotFoundException extends Exception{
+public class InvoiceNotFoundException extends Exception {
     private int invoice_error;
 
-    public InvoiceNotFoundException(int invoice_input)
-    {
+    public InvoiceNotFoundException(int invoice_error){
         super("Invoice ID: ");
-        invoice_error = invoice_input;
+        this.invoice_error = invoice_error;
     }
 
-    public String getExMessage()
-    {
+    public String getExMessage(){
         return super.getMessage() + invoice_error + " not found.";
     }
 }

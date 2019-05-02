@@ -1,27 +1,24 @@
 package jstore;
 /**
- * Enumeration class ItemStatus - write a description of the enum class here
+ * Write a description of class ItemCategory here.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author (your name)
+ * @version (a version number or a date)
  */
 public enum ItemStatus
 {
-
-    New("New"), Second("Second"), Refurbished("Refurbished"), Sold("Sold)");
-    
-   private String ItemStatus;
+   NEW("New"),
+   SECOND("Second"),
+   REFURBISHED("Refurbished"),
+   SOLD("Sold");
    
-    private ItemStatus(String ItemStatus)
-    {
-        this.ItemStatus = ItemStatus;
-    }
+   private String status;
+   ItemStatus(String status){
+    this.status = status;
+   }
+   
+   public String toString(){
+    return status;    
+   }
     
-    private String ItemStatus()
-    {
-        return ItemStatus();
-    }
 }
-    
-    
-

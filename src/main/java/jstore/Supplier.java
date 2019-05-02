@@ -1,116 +1,95 @@
 package jstore;
-public class Supplier {
+import java.util.regex.*;
+
+public class Supplier
+{
+    //inisialisasi variabel
     private int id;
-    private String name;
-    private String email;
-    private String phoneNumber;
+    private String name,email,phoneNumber;
     private Location location;
-
-    /**
-     * Constructor
-     */
-    public Supplier(String name, String email, String phoneNumber, Location location) {
-        this.id = DatabaseSupplier.getLastSupplierID() + 1;
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.location = location;
+    //constructor untuk Supplier
+    public Supplier(String name,String email,String phoneNumber,Location location){
+   Pattern p = Pattern.compile("^\\+62\\d{12,15}$");
+   Matcher m = p.matcher(phoneNumber);
+    if(m.matches()){    
+    this.id = DatabaseSupplier.getLastSupplierId() + 1;
+    this.name = name;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.location = location;
+    } else {
+    System.out.println("Objek Gagal dibuat");
     }
-
-    public int getId()
-    /***
-     * Accessor for ID
-     */
-    {
-        return id;
     }
-
-    public String getName()
-    /***
-     * Accessor for name
-     */
-    {
-        return name;
+ /**Method untuk mendapatkan Id dari Supplier   
+  * @return int return nilai Id
+  */
+ public int getId(){
+    return id;
     }
-
-    public String getEmail()
-    /***
-     * Accessor for email
-     */
-    {
-        return email;
+ /**Method untuk mendapatkan name dari Supplier   
+  * @return String return isi dari name
+  */   
+ public String getName(){
+    return name;
     }
-
-    public String getPhoneNumber()
-    /***
-     * Accessor for Phone Number
-     */
-    {
-        return phoneNumber;
+ /**Method untuk mendapatkan Id dari Supplier   
+  * @return String return isi dari email
+  */   
+ public String getEmail(){
+    return email;
     }
-
-    public Location getLocation()
-    /***
-     * Accessor for Location
-     */
-    {
-        return location;
+ /**Method untuk mendapatkan Id dari Supplier   
+  * @return String return isi dari phoneNumber
+  */   
+ public String getPhoneNumber(){
+    return phoneNumber;
     }
-
-    public void setId(int id)
-    /***
-     * Mutator of ID
-     */
-    {
-        this.id = id;
+ /**Method untuk mendapatkan Id dari Supplier   
+  * @return Location return isi dari Location
+  */
+ public Location getLocation(){
+    return location;
     }
-
-    public void setName(String name)
-    /***
-     * Mutator of name
-     */
-    {
-        this.name = name;
+  /**Method untuk mengganti Id dari Supplier   
+  * @param id Ini merupakan parameter yang digunakan untuk mengganti nilai Id
+  */  
+ public void setId(int id){
+    this.id = id;
     }
-
-    public void setEmail(String email)
-    /***
-     * Mutator of email
-     */
-    {
-        this.email = email;
+  /**Method untuk mengganti name dari Supplier   
+  * @param id Ini merupakan parameter yang digunakan untuk 
+  * mengganti nilai name
+  */     
+ public void setName(String name){
+    this.name = name;
     }
-
-    public void setPhoneNumber(String phoneNumber)
-    /***
-     * Mutator of Phone Number
-     */
-    {
-        this.phoneNumber = phoneNumber;
+  /**Method untuk mengganti email dari Supplier   
+  * @param email Ini merupakan parameter yang digunakan 
+  * untuk mengganti nilai email
+  */     
+ public void setEmail(String email){
+    this.email = email;
     }
-
-    public void setLocation(Location location)
-    /***
-     * Mutator of Location
-     */
-    {
-        this.location = location;
+  /**Method untuk mengganti phoneNumber dari Supplier   
+  * @param phoneNumber Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai phoneNumber
+  */     
+ public void setPhoneNumber(String phoneNumber){
+    this.phoneNumber = phoneNumber;
     }
-
-    /**
-     * This method is to print the name value of the instance
-     */
-    // public void printData()
-    // {
-    // System.out.println("Supplier dan ID");
-    // System.out.println("ID = " + id);
-    // System.out.println("Nama = " + name);
-    // System.out.println("Email = " + email);
-    // System.out.println("No. Telpon = " + phoneNumber);
-    // System.out.println("Lokasi = " + location.getProvince());
-    // }
-    public String toString() {
-        return "ID : " + id + "\nNama : " + name + "\nEmail : " + email + "\nTelpon : " + phoneNumber + "\nLokasi : "
-                + location.getProvince()+ "\n\n";
+  /**Method untuk mengganti location dari Supplier   
+  * @param location Ini merupakan parameter yang digunakan untuk mengganti 
+  * nilai location
+  */     
+ public void setLocation(Location location){
+    this.location = location;
+    }
+  /**Method untuk menampilkan nama dari supplier ke standard output.
+  */    
+ public String toString(){
+    return ("=============SUPPLIER============="+"\nID : " + id +
+    "\nNama: " + name + "\nEmail: " + email + "\nNomor Telepon: " + phoneNumber +
+    "Location: " + location);    
     }
 }

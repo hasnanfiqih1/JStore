@@ -1,15 +1,12 @@
 package jstore;
-public class CustomerDoesntHaveActiveException extends Exception{
+public class CustomerDoesntHaveActiveException extends Exception {
     private Customer customer_error;
 
-    public CustomerDoesntHaveActiveException(Customer customer_input)
-    {
-        super("Customer: ");
+    public CustomerDoesntHaveActiveException(Customer customer_input){
+        super("Customer : ");
         customer_error = customer_input;
     }
-
-    public String getExMessage()
-    {
-        return super.getMessage() + customer_error + " \ndoesnthave active invoice";
+    public String getExMessage(){
+        return super.getMessage() + customer_error + "\n doesnt have active invoice";
     }
 }

@@ -3,6 +3,8 @@ package jstore.controller;
 import jstore.*;
 import org.springframework.web.bind.annotation.*;
 
+
+
 import java.util.Calendar;
 
 @RestController
@@ -11,6 +13,12 @@ public class CustomerController {
     @RequestMapping("/")
     public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
         return "Hello " + name;
+    }
+
+    @RequestMapping(value = "/logincust", method = RequestMethod.POST)
+    public Customer logincust(@RequestParam(value="email")String email, @RequestParam(value="password") String password){
+        Customer customer = DatabaseCustomer.getCustomerLogin(email,password);
+        return customer;
     }
 
     @RequestMapping("/newcustomer")
@@ -26,16 +34,8 @@ public class CustomerController {
         } catch(Exception ex) {
             ex.getMessage();
             return null;
-        };
+        }
 
-        return customer;
-    }
-
-    @RequestMapping("/logincust")
-    public Customer loginCust(@RequestParam(value="email") String email,
-                              @RequestParam(value="password")String password)
-    {
-        Customer customer = DatabaseCustomer.getCustomerLogin(email, password);
         return customer;
     }
 
@@ -44,5 +44,4 @@ public class CustomerController {
         Customer customer = DatabaseCustomer.getCustomer(id);
         return customer;
     }
-
 }
