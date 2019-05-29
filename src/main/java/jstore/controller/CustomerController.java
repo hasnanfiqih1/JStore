@@ -3,45 +3,73 @@ package jstore.controller;
 import jstore.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 
-
-import java.util.Calendar;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class CustomerController {
 
-    @RequestMapping("/")
-    public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
-        return "Hello " + name;
+    private DatabaseCustomerPostgre db = new DatabaseCustomerPostgre();
+
+    @RequestMapping("/getallcustomer")
+    public ArrayList<Customer> getAll(){
+        db.connect();
+        ArrayList<Customer> temp = db.getCustomerDatabase();
+        db.disconnect();
+        return temp;
     }
 
-    @RequestMapping(value = "/logincust", method = RequestMethod.POST)
-    public Customer logincust(@RequestParam(value="email")String email, @RequestParam(value="password") String password){
-        Customer customer = DatabaseCustomer.getCustomerLogin(email,password);
-        return customer;
-    }
-
-    @RequestMapping("/newcustomer")
+    @RequestMapping(value = "/newcustomer", method = RequestMethod.POST)
     public Customer newCust(@RequestParam(value="name") String name,
                             @RequestParam(value="email") String email,
                             @RequestParam(value="username") String username,
-                            @RequestParam(value="password") String password
-    )
+                            @RequestParam(value="password") String password,
+                            @RequestParam(value="year", defaultValue = "1999") int year,
+                            @RequestParam(value="month", defaultValue = "7") int month,
+                            @RequestParam(value="dayOfMonth", defaultValue = "24") int dayOfMonth
+                            )
     {
-        Customer customer = new Customer(name, email, username, password, 1999, 10, 10);
-        try {
-            DatabaseCustomer.addCustomer(customer);
-        } catch(Exception ex) {
-            ex.getMessage();
-            return null;
-        }
-
-        return customer;
+        db.connect();
+        Customer temp = db.insertCustomer(name,email,username,password,year,month,dayOfMonth);
+        db.disconnect();
+        return temp;
     }
 
     @RequestMapping("/getcustomer/{id}")
     public Customer getCust(@PathVariable int id) {
-        Customer customer = DatabaseCustomer.getCustomer(id);
-        return customer;
+        db.connect();
+        Customer temp;
+        try {
+            temp = db.getCustomer(id);
+        } catch (CustomerNotFoundException e) {
+            e.printStackTrace();
+            temp = null;
+        }
+        db.disconnect();
+        return temp;
+    }
+
+    @RequestMapping(value = "/deletecustomer/{id}", method = RequestMethod.DELETE)
+    public Customer deleteCust(@PathVariable int id){
+        db.connect();
+        Customer temp;
+        try {
+            temp = db.deleteCustomer(id);
+        } catch (CustomerNotFoundException e) {
+            e.printStackTrace();
+            temp = null;
+        }
+        db.disconnect();
+        return temp;
+    }
+
+    @RequestMapping(value = "/logincust", method = RequestMethod.POST)
+    public Customer loginCust(@RequestParam (value = "email") String email,
+                          @RequestParam (value = "password") String password)
+    {
+        db.connect();
+        Customer temp = db.loginCustomer(email,password);
+        db.disconnect();
+        return temp;
     }
 }
